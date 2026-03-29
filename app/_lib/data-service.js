@@ -1,11 +1,15 @@
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
 import { notFound } from "next/navigation";
+import { cacheLife } from "next/cache";
 
 /////////////
 // GET
 
 export async function getCabin(id) {
+  "use cache";
+  console.log("🔍 Fetching getCabin for id:", id);
+  cacheLife("days");
   const { data, error } = await supabase
     .from("cabins")
     .select("*")
@@ -24,6 +28,9 @@ export async function getCabin(id) {
 }
 
 export async function getCabinPrice(id) {
+  "use cache";
+  console.log("💰 Fetching getCabinPrice for id:", id);
+  cacheLife("days");
   const { data, error } = await supabase
     .from("cabins")
     .select("regularPrice, discount")
@@ -38,6 +45,9 @@ export async function getCabinPrice(id) {
 }
 
 export const getCabins = async function () {
+  "use cache";
+  console.log("🏔️ Fetching getCabins");
+  cacheLife("days");
   const { data, error } = await supabase
     .from("cabins")
     .select("id, name, maxCapacity, regularPrice, discount, image")
@@ -64,6 +74,9 @@ export async function getGuest(email) {
 }
 
 export async function getBooking(id) {
+  "use cache";
+  console.log("📋 Fetching getBooking for id:", id);
+  cacheLife("max");
   const { data, error, count } = await supabase
     .from("bookings")
     .select("*")
@@ -79,6 +92,9 @@ export async function getBooking(id) {
 }
 
 export async function getBookings(guestId) {
+  "use cache";
+  console.log("📚 Fetching getBookings for guestId:", guestId);
+  cacheLife("max");
   const { data, error, count } = await supabase
     .from("bookings")
     // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
@@ -127,6 +143,9 @@ export async function getBookedDatesByCabinId(cabinId) {
 }
 
 export async function getSettings() {
+  "use cache";
+  console.log("⚙️ Fetching getSettings");
+  cacheLife("days");
   const { data, error } = await supabase.from("settings").select("*").single();
 
   if (error) {
@@ -138,6 +157,10 @@ export async function getSettings() {
 }
 
 export async function getCountries() {
+  "use cache";
+  console.log("🌍 Fetching getCountries");
+  cacheLife("max");
+
   try {
     const res = await fetch(
       "https://restcountries.com/v2/all?fields=name,flag",
