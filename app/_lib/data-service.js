@@ -44,7 +44,7 @@ export async function getCabinPrice(id) {
   return data;
 }
 
-export const getCabins = async function () {
+export async function getCabins() {
   "use cache";
   console.log("🏔️ Fetching getCabins");
   cacheLife("days");
@@ -59,7 +59,7 @@ export const getCabins = async function () {
   }
 
   return data;
-};
+}
 
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {
