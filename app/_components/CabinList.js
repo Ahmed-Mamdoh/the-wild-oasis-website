@@ -1,9 +1,11 @@
-"use cache";
 import CabinCard from "./CabinCard";
 
 import { getCabins } from "../_lib/data-service";
+import { cacheLife } from "next/cache";
 
 async function CabinList({ filter }) {
+  "use cache";
+  cacheLife("days");
   const cabins = await getCabins();
   if (cabins.length === 0) return null;
   let displayCabins;
