@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏔️ The Wild Oasis - Next.js & Auth.js Implementation
 
-## Getting Started
+**The Wild Oasis** demonstrates advanced Next.js and Auth.js integration, developed as part of [Jonas Schmedtmann's "The Ultimate React Course 2025"](https://www.udemy.com/course/the-ultimate-react-course/). This project showcases production-ready authentication flows and modern React architecture.
 
-First, run the development server:
+🌐 **[Live Demo](https://the-wild-oasis-website-demo-drab.vercel.app/)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔐 Authentication Features
+Secure user authentication with Google OAuth, protected routes, session management, and user profile handling. Users can sign in, manage bookings, and access personalized dashboards with persistent sessions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Next.js Core Implementation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🏗️ App Router Architecture
+- **File-based routing** with dynamic segments for cabins `[cabinId]` and reservations `[id]`
+- **Nested layouts** for account section with shared navigation and auth checks
+- **Loading states** using React Suspense boundaries for optimal UX
+- **Error boundaries** with custom error pages and graceful fallbacks
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛡️ Auth.js Integration
 
-## Learn More
+### 🔑 Session Management
+- **Automatic token refresh** with secure cookie handling
+- **User profile integration** linking auth providers to database records
+- **Role-based access** with guest/user permissions
+- **Sign-out functionality** with proper session cleanup
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Technology Stack
+- **Next.js 16**: App Router, Server Components, Server Actions
+- **Auth.js 5**: OAuth providers, session management, middleware
+- **Supabase**: PostgreSQL database supporting user data
+- **React 18**: Concurrent features, Suspense, Context API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Key Achievements
+- ✅ **Server-side authentication** with secure session handling
+- ✅ **Protected API routes** with proper authorization checks  
+- ✅ **OAuth integration** supporting multiple providers
+- ✅ **Performance optimization** with streaming 
+- ✅ **Error handling** with user-friendly auth flows
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📸 Screenshots
+*Screenshots will be added here*
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**🎓 Educational Project** - [Jonas Schmedtmann's Ultimate React Course 2025](https://www.udemy.com/course/the-ultimate-react-course/)
